@@ -1,0 +1,65 @@
+{
+    "name": "red-magic",
+    "displayName": "red-magic",
+    "description": "Intellisense, auto-completion for Red language",
+    "version": "0.0.1",
+    "publisher": "yoyocat",
+    "license": "SEE LICENSE IN LICENSE or README.MD",
+    "homepage": "https://github.com/yoyocat/red-vscode/blob/master/README.md",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/yoyocat/red-vscode"
+    },
+    "bugs": {
+        "url": "https://github.com/yoyocat/red-vscode/issues"
+    },
+    "icon": "images/icon.png",
+    "engines": {
+        "vscode": "^1.0.0"
+    },
+    "categories": [
+        "Languages"
+    ],
+    "activationEvents": [
+        "onLanguage:red"
+    ],
+    "main": "./out/src/extension",
+    "contributes": {
+        "languages": [{
+            "id": "red",
+            "aliases": ["Red", "red"],
+            "extensions": [".red", ".reds"],
+            "configuration": "./red.configuration.json"
+        }],
+        "grammars": [{
+            "language": "red",
+            "scopeName": "source.red",
+            "path": "./syntaxes/red.tmLanguage"
+        }],
+        "configuration": {
+            "type": "object",
+            "title": "Red Configuration",
+            "properties": {
+                "red.redPath": {
+                    "type": "string",
+                    "default": "red",
+                    "description": "Path to Red, you can use a custom version of Red by modifying this setting to include the full path."
+                },
+                "red.devOptions": {
+                    "type": "array",
+                    "default": [],
+                    "description": "Advanced options used to enable new features or produce detailed diagnostics to identify extension issues."
+                }
+            }
+        }
+    },
+    "scripts": {
+        "vscode:prepublish": "node ./node_modules/vscode/bin/compile",
+        "compile": "node ./node_modules/vscode/bin/compile -watch -p ./",
+        "postinstall": "node ./node_modules/vscode/bin/install"
+    },
+    "devDependencies": {
+        "typescript": "^1.8.5",
+        "vscode": "^0.11.0"
+    }
+}

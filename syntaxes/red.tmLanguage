@@ -30,6 +30,7 @@
   ^      # a line beginning with
   \s*    # some optional space
   [}\]]  # and the close of an object or array</string>
+	<key>keyEquivalent</key>
 	<string>^~R</string>
 	<key>name</key>
 	<string>Red</string>
